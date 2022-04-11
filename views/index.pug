@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  .container-fluid
+    h1= title
+    p Welcome to #{title}
+  
+  .container-lg 
+    #carouselExampleControls.carousel.slide.carousel-dark(data-bs-ride='carousel',data-bs-interval="2000")
+      .carousel-inner
+        .carousel-item.active
+          img.d-block.w-100(src='/images/books1.jpg' alt='book 1')
+        .carousel-item
+          img.d-block.w-100(src='/images/books2.jpg' alt='book 2')
+        .carousel-item
+          img.d-block.w-100(src='/images/books3.jpg' alt='book 3')
+        button.carousel-control-prev(type='button' data-bs-target='#carouselExampleControls' data-bs-slide='prev')
+          span.carousel-control-prev-icon(aria-hidden='true')
+          span.visually-hidden Previous
+        button.carousel-control-next(type='button' data-bs-target='#carouselExampleControls' data-bs-slide='next')
+          span.carousel-control-next-icon(aria-hidden='true')
+          span.visually-hidden Next
+
