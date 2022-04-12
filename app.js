@@ -7,6 +7,8 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var booksRouter = require('./routes/books');
+var authorRouter = require('./routes/authors');
+var genresRouter = require('./routes/genres');
 
 var app = express();
 
@@ -17,12 +19,14 @@ app.set('view engine', 'pug');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-// app.use(bodyParser.urlencoded({extended:false}));
+
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/books', booksRouter);
+app.use('/authors', authorRouter);
+app.use('/genres', genresRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

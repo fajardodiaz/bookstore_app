@@ -1,33 +1,30 @@
 var express = require('express');
 var router = express.Router();
 
+// Pool to use the  database
+const db = require('../models/index');
 
-book_list = [
-  {
-    id: 1,
-    title: "1984",
-    author: "George Orwell",
-  },
-  {
-    id: 2,
-    title: "Asi hablo Zaratustra",
-    author: "Friedrich Nitzsche",
-  },
-  {
-    id: 3,
-    title: "Damian",
-    author: "George Orwell",
-  },
-]
+//Connections
+// db.execute('SELECT * FROM book')
+// .then((result)=>{
+//   console.log(result[0]);
+// })
+// .catch((err)=> console.log(err));
+
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.render('books_list', {books:book_list});
+router.get('/', (req, res, next)=>{
+  db.execute('SELECT * FROM book')
+  .then((result)=>{
+      books_list = result[0];
+      res.render('books/books_list', {books: books_list});
+  })
+  .catch((err)=> console.log(err));
 });
 
 /* Add a Book */
 router.get('/add-book', function(req, res, next){
-  res.render('add_book');
+  res.render('books/add_book');
 });
 
 router.post('/add-book',(req, res, next)=>{

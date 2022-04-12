@@ -1,16 +1,12 @@
-// const { Sequelize } = require('sequelize');
+const mysql = require('mysql2');
+const config = require('../config/database');
 
-// const config = require('../config/database');
-
-// const sequelize = new Sequelize(config.database, config.username, config.password, {
-//     host: config.host,
-//     dialect: config.dialect,
-// });
-
-// sequelize.authenticate()
-// .then(()=>console.log("Connection created succesfully"))
-// .catch((err)=>console.log(err));
-
-// module.exports = sequelize;
+const pool = mysql.createPool({
+    host: config.host,
+    user: config.username,
+    database: config.database,
+    password: config.password,
+});
 
 
+module.exports = pool.promise();

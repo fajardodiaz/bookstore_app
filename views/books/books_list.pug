@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+    .container-fluid
+        h1 List Books
+            table.table.table-striped.fs-6
+                thead 
+                    tr 
+                        th(scope="col") ID 
+                        th(scope="col") Title 
+                        th(scope="col") Author
+                        th(scope="col") Summary
+                        th(scope="col") ISBN 
+                        th(scope="col") Genre 
+                tbody
+                    each book in books
+                        tr 
+                            th(scope="row")=book.id
+                            th(scope="row")=book.title
+                            th(scope="row")=book.author
+                            th(scope="row")=book.summary 
+                            th(scope="row")=book.isbn 
+                            th(scope="row")=book.genre

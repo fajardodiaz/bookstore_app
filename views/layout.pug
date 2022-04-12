@@ -20,6 +20,25 @@ html
                   a.dropdown-item(href='/books') List Books
                 li
                   a.dropdown-item(href='/books/add-book') Add a Book
+
+            li.nav-item.dropdown
+              a#navbarDropdown.nav-link.dropdown-toggle(href='/books' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+                | Authors
+              ul.dropdown-menu(aria-labelledby='navbarDropdown')
+                li
+                  a.dropdown-item(href='/authors') List Authors
+                li
+                  a.dropdown-item(href='/authors/add-author') Add an Author
+
+            li.nav-item.dropdown
+              a#navbarDropdown.nav-link.dropdown-toggle(href='/books' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+                | Genres
+              ul.dropdown-menu(aria-labelledby='navbarDropdown')
+                li
+                  a.dropdown-item(href='/genres') List Genres
+                li
+                  a.dropdown-item(href='/genres/add-genre') Add a Genre
+
             li.nav-item
               a.nav-link.active(aria-current='page' href='/projects') Projects
             li.nav-item 

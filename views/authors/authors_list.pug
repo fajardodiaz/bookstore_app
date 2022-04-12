@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+    .container-fluid
+        h1 List Authors
+            table.table.table-striped.fs-6
+                thead 
+                    tr 
+                        th(scope="col") ID 
+                        th(scope="col") Name 
+                        th(scope="col") Lastname
+                        th(scope="col") Birth 
+                        th(scope="col") Death
+                tbody
+                    each author in authors
+                        tr 
+                            th(scope="row")= author.id
+                            th(scope="row")= author.firstname
+                            th(scope="row")= author.lastname
+                            th(scope="row")= author.birth
+                            th(scope="row")= author.death
