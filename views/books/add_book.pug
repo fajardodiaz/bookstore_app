@@ -1,19 +1,29 @@
 extends ../layout
 
 block content
-    .container-fluid
-        h1 Add a Book
-            .container
-                form(action="/books/add-book", method="post") 
-                    .mb-3.fs-5
-                        label.form-label(for='id') ID
-                        input#exampleInputEmail1.form-control(type='text', name='id')
-                    .mb-3.fs-5
-                        label.form-label(for='title') Title
-                        input#exampleInputEmail1.form-control(type='text' ,name='title')
-                    .mb-3.fs-5
-                        label.form-label(for='author') Author
-                        input#exampleInputEmail1.form-control(type='text' ,name='author')
-                    
-                    button.btn.btn-primary(type="submit") Send 
+    .container-sm.border.my-5
+        .container-sm.my-4
+            h1 Add a Book
+            form(action="/books/add-book", method="post")
+                .mb-3.fs-5
+                    label.form-label(for='title') Title
+                    input#exampleInputEmail1.form-control(type='text' ,name='title')
+                .mb-3.fs-5
+                    label(for='author') Author
+                    select#exampleFormControlSelect1.form-control(name='author')
+                        each author in authors
+                            option=author.firstname + " " +author.lastname 
+                .mb-3.fs-5
+                    label.form-label(for='id') Summary
+                    input#exampleInputEmail1.form-control(type='text', name='summary')
+                .mb-3.fs-5
+                    label.form-label(for='id') ISBN
+                    input#exampleInputEmail1.form-control(type='text', name='isbn')
+                .mb-3.fs-5
+                    label.form-label(for='genre') Genre
+                    select#exampleFormControlSelect1.form-control(name='genre')
+                        each genre in genres
+                            option=genre.name
+                            
+                button.btn.btn-primary(type="submit") Send 
                     

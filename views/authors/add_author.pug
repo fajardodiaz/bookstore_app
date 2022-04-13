@@ -1,19 +1,22 @@
 extends ../layout
 
 block content
-    .container-fluid
-        h1 Add a Book
-            .container
-                form(action="/books/add-book", method="post") 
+    .container-sm.border.my-5
+            .container-sm.my-4
+                h1 Add an Author
+                form(action="/authors/add-author", method="post")
                     .mb-3.fs-5
-                        label.form-label(for='id') ID
-                        input#exampleInputEmail1.form-control(type='text', name='id')
+                        label.form-label(for='title') Name
+                        input#exampleInputEmail1.form-control(type='text' ,name='firstname')
                     .mb-3.fs-5
-                        label.form-label(for='title') Title
-                        input#exampleInputEmail1.form-control(type='text' ,name='title')
+                        label.form-label(for='author') Lastname
+                        input#exampleInputEmail1.form-control(type='text' ,name='lastname')
                     .mb-3.fs-5
-                        label.form-label(for='author') Author
-                        input#exampleInputEmail1.form-control(type='text' ,name='author')
+                        label.form-label(for='id') Birth
+                        input#exampleInputEmail1.form-control(type='date', name='birth')
+                    .mb-3.fs-5
+                        label.form-label(for='id') Death
+                        input#exampleInputEmail1.form-control(type='date', name='death')
                     
-                    button.btn.btn-primary(type="submit") Send 
+                    button.btn.btn-primary(type="submit") Send
                     

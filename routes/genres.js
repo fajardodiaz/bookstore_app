@@ -17,4 +17,22 @@ router.get('/', (req, res, next)=>{
 });
 
 
+/* Add a GENRE */
+router.get('/add-genre', (req, res, next) => {
+    res.render('genres/add_genre');
+})
+
+router.post('/add-genre', (req, res, next) => {
+    let {
+        name
+    } = req.body;
+    db.execute(`INSERT INTO genre(name) VALUES('${name}')`)
+        .then(() => {
+            res.redirect('/genres');
+        })
+        .catch((err) => console.log(err));
+})
+
+
+
 module.exports = router;

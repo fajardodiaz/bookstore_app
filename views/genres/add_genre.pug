@@ -1,19 +1,13 @@
 extends ../layout
 
 block content
-    .container-fluid
-        h1 Add a Book
-            .container
-                form(action="/books/add-book", method="post") 
-                    .mb-3.fs-5
-                        label.form-label(for='id') ID
-                        input#exampleInputEmail1.form-control(type='text', name='id')
-                    .mb-3.fs-5
-                        label.form-label(for='title') Title
-                        input#exampleInputEmail1.form-control(type='text' ,name='title')
-                    .mb-3.fs-5
-                        label.form-label(for='author') Author
-                        input#exampleInputEmail1.form-control(type='text' ,name='author')
-                    
-                    button.btn.btn-primary(type="submit") Send 
+    .container-sm.border.my-5
+        .container-sm.my-4
+            h1 Add a Genre
+            form(action="/genres/add-genre", method="post") 
+                .mb-3.fs-5
+                    label.form-label(for='id') Name
+                    input#exampleInputEmail1.form-control(type='text', name='name')
+                
+                button.btn.btn-primary(type="submit") Send 
                     

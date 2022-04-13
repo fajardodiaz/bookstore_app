@@ -3,19 +3,22 @@ extends ../layout
 block content
     .container-fluid
         h1 List Authors
-            table.table.table-striped.fs-6
-                thead 
-                    tr 
-                        th(scope="col") ID 
-                        th(scope="col") Name 
-                        th(scope="col") Lastname
-                        th(scope="col") Birth 
-                        th(scope="col") Death
-                tbody
-                    each author in authors
+            if(authors.length > 0)
+                table.table.table-striped.fs-6
+                    thead 
                         tr 
-                            th(scope="row")= author.id
-                            th(scope="row")= author.firstname
-                            th(scope="row")= author.lastname
-                            th(scope="row")= author.birth
-                            th(scope="row")= author.death
+                            th(scope="col") ID 
+                            th(scope="col") Name 
+                            th(scope="col") Lastname
+                            th(scope="col") Birth 
+                            th(scope="col") Death
+                    tbody
+                        each author in authors
+                            tr 
+                                th(scope="row")= author.id
+                                th(scope="row")= author.firstname
+                                th(scope="row")= author.lastname
+                                th=moment(author.birth).format("MM/DD/YYYY")
+                                th=moment(author.death).format("MM/DD/YYYY")
+            else 
+                h1 Not Authors Available
