@@ -12,13 +12,20 @@ block content
                             th(scope="col") Lastname
                             th(scope="col") Birth 
                             th(scope="col") Death
+                            th(scope="col") 
+                            th(scope="col") 
                     tbody
                         each author in authors
                             tr 
-                                th(scope="row")= author.id
-                                th(scope="row")= author.firstname
-                                th(scope="row")= author.lastname
-                                th=moment(author.birth).format("MM/DD/YYYY")
-                                th=moment(author.death).format("MM/DD/YYYY")
+                                th.align-middle(scope="row")= author.id
+                                th.align-middle(scope="row")= author.firstname
+                                th.align-middle(scope="row")= author.lastname
+                                th.align-middle=moment(author.birth).format("MM/DD/YYYY")
+                                th.align-middle=moment(author.death).format("MM/DD/YYYY")
+                                th.align-middle
+                                    a.btn.btn-warning(type='button' href=`/authors/${author.id}`) Edit
+                                th.align-middle
+                                    a.btn.btn-danger(type='button' href=`/authors/${author.id}`) Delete
+
             else 
                 h1 Not Authors Available

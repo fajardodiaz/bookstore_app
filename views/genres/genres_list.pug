@@ -9,10 +9,16 @@ block content
                         tr 
                             th(scope="col") ID 
                             th(scope="col") Genre 
+                            th(scope="col")
+                            th(scope="col") 
                     tbody
                         each genre in genres
                             tr 
-                                th(scope="row")=genre.id
-                                th(scope="row")=genre.name
+                                th.align-middle(scope="row")=genre.id
+                                th.align-middle(scope="row")=genre.name
+                                th.align-middle
+                                    a.btn.btn-warning(type='button' href=`/genres/${genre.id}`) Edit
+                                th.align-middle
+                                    a.btn.btn-danger(type='button' href=`/genres/${genre.id}`) Delete
             else 
                 h1 Not Genres Available
